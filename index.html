@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEBRUARY SURVEY</title>
+    <style>
+        body {
+            font-family: cursive;
+            background-color: #ffe6e6; /* light red background */
+            margin-top: 100px;
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 30px;
+        }
+        .emoji {
+            font-size: 36px;
+        }
+    </style>
+</head>
+<body>
+    <div class="question">
+        <p>Question 1: Have you ever received a secret admirer's gift?</p>
+        <button onclick="showEmoji('heart', 1)">Yes</button>
+        <button onclick="showEmoji('sad', 1)">No</button>
+        <div id="emoji1"></div>
+    </div>
+
+    <div class="question">
+        <p>Question 2: Do you enjoy receiving flowers?</p>
+        <button onclick="showEmoji('heart', 2)">Yes</button>
+        <button onclick="showEmoji('sad', 2)">No</button>
+        <div id="emoji2"></div>
+    </div>
+
+    <div class="question">
+        <p>Question 3: Do you believe in love at first sight?</p>
+        <button onclick="showEmoji('heart', 3)">Yes</button>
+        <button onclick="showEmoji('sad', 3)">No</button>
+        <div id="emoji3"></div>
+    </div>
+
+    <div class="question">
+        <p>Question 4: Have you ever written a love letter?</p>
+        <button onclick="showEmoji('heart', 4)">Yes</button>
+        <button onclick="showEmoji('sad', 4)">No</button>
+        <div id="emoji4"></div>
+    </div>
+
+    <div class="question">
+        <p>Question 5: Do you enjoy romantic movies?</p>
+        <button onclick="showEmoji('heart', 5)">Yes</button>
+        <button onclick="showEmoji('sad', 5)">No</button>
+        <div id="emoji5"></div>
+    </div>
+
+    <div class="question">
+        <p>Question 6: Do you believe in soulmates?</p>
+        <button onclick="showEmoji('heart', 6)">Yes</button>
+        <button onclick="showEmoji('sad', 6)">No</button>
+        <div id="emoji6"></div>
+    </div>
+
+    <div class="question">
+        <p>Question 7: Do you enjoy writing love poems?</p>
+        <button onclick="showEmoji('heart', 7)">Yes</button>
+        <button onclick="showEmoji('sad', 7)">No</button>
+        <div id="emoji7"></div>
+    </div>
+
+    <div class="question">
+        <p>Question 8: Would you consider yourself a hopeless romantic?</p>
+        <button onclick="showEmoji('heart', 8)">Yes</button>
+        <button onclick="showEmoji('sad', 8)">No</button>
+        <div id="emoji8"></div>
+    </div>
+
+    <div class="question">
+        <p>Question 9: Do you believe in fate bringing two people together?</p>
+        <button onclick="showEmoji('heart', 9)">Yes</button>
+        <button onclick="showEmoji('sad', 9)">No</button>
+        <div id="emoji9"></div>
+    </div>
+
+    <div class="question">
+        <p>Will you be my Valentine?</p>
+        <div id="choices">
+            <button id="yes">Yes</button>
+            <button id="no">No</button>
+        </div>
+        <div id="message"></div> <!-- Added a div for displaying messages -->
+    </div>
+
+    <script>
+        function showEmoji(type, questionNumber) {
+            let emojiDiv = document.getElementById('emoji' + questionNumber);
+            emojiDiv.innerHTML = '';
+            let emoji = document.createElement('span');
+            emoji.classList.add('emoji');
+            if (type === 'heart') {
+                emoji.innerHTML = '❤️';
+            } else if (type === 'sad') {
+                emoji.innerHTML = '😢';
+            }
+            emojiDiv.appendChild(emoji);
+        }
+
+        let yesButton = document.getElementById('yes');
+        let noButton = document.getElementById('no');
+        let messageDiv = document.getElementById('message');
+        let noCount = 0;
+
+        yesButton.addEventListener('click', function() {
+            messageDiv.innerHTML = "<p>😍 Eyyyyy Naka Apas Na Gyud ko sa Feb 14  Happy Valentine's Day! 😍</p>";
+        });
+
+        noButton.addEventListener('click', function() {
+            noCount++;
+            if (noCount <= 10) {
+                if (noCount === 1) {
+                    messageDiv.innerHTML = "<p>😔 Baka Naman kahit one chance UwU</p>";
+                } else if (noCount === 2) {
+                    messageDiv.innerHTML = "<p>😢 Kinsa man pud ko para eh crushback mahimo nalang ko hotdog</p>";
+                } else if (noCount === 3) {
+                    messageDiv.innerHTML = "<p>😞 Sana pinutok nalang ako HAHAHHAHA</p>";
+                } else if (noCount === 4) {
+                    messageDiv.innerHTML = "<p>😔 Okay ra kinsa man pud ko, gusto raman naku ihatag ang kalibutan saimo</p>";
+                } else if (noCount === 5) {
+                    messageDiv.innerHTML = "<p>😭 what if ako imong prince charming *sinuntok ang pader</p>";
+                } else if (noCount === 6) {
+                    let randomMessages = [
+                        "😢 Why do you keep rejecting me?",
+                        "😔 I guess I'm just not lovable...",
+                        "😞 I'll go watch sad movies alone then...",
+                        "😭 I'll be spending Valentine's Day alone...",
+                        "💔 My heart is broken...",
+                        "😢 What did I do wrong?",
+                        "😔 Maybe I'm just not funny enough...",
+                        "😞 I'll just sit here and eat ice cream...",
+                        "😭 This is the saddest Valentine's Day ever...",
+                        "💔 I guess I'm destined to be alone..."
+                    ];
+                    let randomIndex = Math.floor(Math.random() * randomMessages.length);
+                    messageDiv.innerHTML = "<p>" + randomMessages[randomIndex] + "</p>";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
